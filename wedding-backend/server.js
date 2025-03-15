@@ -8,11 +8,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// MongoDB connection using environment variable
-mongoose.connect(process.env.MONGODB_URI, {
+// MongoDB connection using environment variable with fallback for local
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/wedding-events';
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
-}).catch(err => console.error('MongoDB connection error:', err));
+}).then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 // Event Schema
 const eventSchema = new mongoose.Schema({
@@ -77,10 +79,12 @@ const initializeData = async () => {
   }
 };
 
-// Run initialization only if not on Vercel (optional)
+// Run initialization and start server locally if not on Vercel
 if (process.env.NODE_ENV !== 'production') {
   mongoose.connection.once('open', () => {
     initializeData();
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   });
 }
 
