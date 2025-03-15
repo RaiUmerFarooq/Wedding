@@ -8,13 +8,16 @@ const EventManager = () => {
   const [allCounters, setAllCounters] = useState({ nikkah: 0, shalima: 0, totalGuests: 0, totalMales: 0, totalFemales: 0 });
   const [selectedEvent, setSelectedEvent] = useState(null); // null means show all events
 
+  // Base API URL from environment variable
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000'; // Fallback for safety
+
   useEffect(() => {
     fetchEvents();
   }, []);
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/events');
+      const response = await fetch(`${API_BASE_URL}/api/events`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -31,7 +34,7 @@ const EventManager = () => {
 
   const addEvent = async (newEvent) => {
     try {
-      const response = await fetch('http://localhost:5000/api/events', {
+      const response = await fetch(`${API_BASE_URL}/api/events`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newEvent)
@@ -47,7 +50,7 @@ const EventManager = () => {
 
   const deleteEvent = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/events/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/events/${id}`, {
         method: 'DELETE'
       });
       if (!response.ok) {
