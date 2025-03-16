@@ -10,7 +10,25 @@ const EventForm = ({ onAddEvent }) => {
   const [location, setLocation] = useState(''); // New state for location
 
   // Array of predefined locations
-  const locations = ['Lahore', 'Jaranwala', 'Kot Fazal', 'Kot Ameer',"Kot Hadayat khan","Lodhiwala","Islamabad"];
+  const locations = [
+    "Lahore",
+    "Jaranwala",
+    "Kot Fazal",
+    "Kot Ameer",
+    "Kot Hadayat",
+    "Kot Falak Sher",
+    "Kot Namdar",
+    "Hammad ka Chak",
+    "Lodhi Wala",
+    "Lundiawala",
+    "Norpura",
+    "Khokhar ka Thatha",
+    "Raja Wala",
+    "Nankana",
+    "Chah Pakka",
+    "Bazm",
+    "Islamabad"
+  ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
