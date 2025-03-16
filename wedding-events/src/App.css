@@ -255,6 +255,36 @@ li button:hover {
   box-shadow: none;
 }
 
+/* Location Selector */
+.location-selector {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 10; /* Ensure it’s above the counters background */
+}
+
+.location-selector select {
+  background: #d9c2b5;
+  color: #4a3f35;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 200px;
+  max-width: 100%;
+}
+
+.location-selector select:hover,
+.location-selector select:focus {
+  background: #b89a8c;
+  color: white;
+  outline: none;
+  box-shadow: 0 4px 15px rgba(163, 134, 119, 0.3);
+}
+
 /* Event Totals */
 .event-totals {
   text-align: center;
@@ -368,6 +398,12 @@ li button:hover {
     font-size: 0.9rem;
   }
 
+  .location-selector select {
+    width: 100%;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
   .event-totals p {
     font-size: 1rem;
     padding: 8px;
@@ -400,6 +436,10 @@ li button:hover {
   }
 
   .event-buttons button {
+    font-size: 0.85rem;
+  }
+
+  .location-selector select {
     font-size: 0.85rem;
   }
 

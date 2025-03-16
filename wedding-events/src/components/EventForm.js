@@ -7,10 +7,14 @@ const EventForm = ({ onAddEvent }) => {
   const [date, setDate] = useState('');
   const [maleGuests, setMaleGuests] = useState(0);
   const [femaleGuests, setFemaleGuests] = useState(0);
+  const [location, setLocation] = useState(''); // New state for location
+
+  // Array of predefined locations
+  const locations = ['Lahore', 'Jaranwala', 'Kot Fazal', 'Kot Ameer',"Kot Hadayat khan","Lodhiwala","Islamabad"];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (eventName && personName && date) {
+    if (eventName && personName && date && location) {
       if (date !== '2025-04-04' && date !== '2025-04-05') {
         alert('Events can only be scheduled on April 4th or 5th, 2025');
         return;
@@ -20,13 +24,17 @@ const EventForm = ({ onAddEvent }) => {
         personName, 
         date, 
         maleGuests: Number(maleGuests), 
-        femaleGuests: Number(femaleGuests) 
+        femaleGuests: Number(femaleGuests),
+        location // Include location in the submitted data
       });
       setEventName('');
       setPersonName('');
       setDate('');
       setMaleGuests(0);
       setFemaleGuests(0);
+      setLocation(''); // Reset location
+    } else {
+      alert('Please fill out all required fields');
     }
   };
 
@@ -94,6 +102,20 @@ const EventForm = ({ onAddEvent }) => {
           onChange={(e) => setFemaleGuests(e.target.value)}
           required
         />
+      </div>
+      <div className="form-group">
+        <label htmlFor="location">Location</label>
+        <select
+          id="location"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          required
+        >
+          <option value="">Select Location</option>
+          {locations.map((loc) => (
+            <option key={loc} value={loc}>{loc}</option>
+          ))}
+        </select>
       </div>
       <button type="submit">Add to Wedding Plans</button>
     </form>
