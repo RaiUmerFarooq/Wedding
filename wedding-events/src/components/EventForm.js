@@ -27,7 +27,10 @@ const EventForm = ({ onAddEvent }) => {
     "Nankana",
     "Chah Pakka",
     "Bazm",
-    "Islamabad"
+    "Islamabad",
+    "Kot Varyaam",
+    "Kot barkhardar",
+    "630gb"
   ];
 
   const handleSubmit = (e) => {
