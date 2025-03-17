@@ -50,6 +50,13 @@ const EventManager = () => {
   };
 
   const deleteEvent = async (id) => {
+    // Show confirmation popup
+    const confirmDelete = window.confirm('Are you sure you want to delete this guest from the list?');
+    if (!confirmDelete) {
+      console.log('Delete canceled by user');
+      return; // Exit if user clicks "Cancel"
+    }
+
     try {
       const response = await fetch(`${API_BASE_URL}/api/events/${id}`, {
         method: 'DELETE'
@@ -57,6 +64,7 @@ const EventManager = () => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
+      console.log(`Event ${id} deleted successfully`);
       await fetchEvents();
     } catch (error) {
       console.error('Delete event error:', error);
