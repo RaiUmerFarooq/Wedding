@@ -30,7 +30,11 @@ const EventForm = ({ onAddEvent }) => {
     "Islamabad",
     "Kot Varyaam",
     "Kot barkhardar",
-    "630gb"
+    "630gb",
+    "Shahjahan guest",
+    "Rafay guest",
+    "Shehrbano guest",
+    "Hufsa guest"
   ];
 
   const handleSubmit = (e) => {
@@ -40,11 +44,11 @@ const EventForm = ({ onAddEvent }) => {
         alert('Events can only be scheduled on April 4th or 5th, 2025');
         return;
       }
-      onAddEvent({ 
-        eventName, 
-        personName, 
-        date, 
-        maleGuests: Number(maleGuests), 
+      onAddEvent({
+        eventName,
+        personName,
+        date,
+        maleGuests: Number(maleGuests),
         femaleGuests: Number(femaleGuests),
         location // Include location in the submitted data
       });
