@@ -1,6 +1,7 @@
 /* src/App.css */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Dancing+Script&display=swap');
 
+/* App Container */
 .App {
   max-width: 900px;
   margin: 0 auto;
@@ -10,32 +11,84 @@
   font-family: 'Cormorant Garamond', serif;
 }
 
+/* General Typography */
 h1 {
   font-family: 'Dancing Script', cursive;
-  color: #4a3f35;
+  color: #b89a8c;
   font-size: 3.5rem;
   text-align: center;
   margin-bottom: 40px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+h2 {
+  font-family: 'Dancing Script', cursive;
+  color: #4a3f35;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 30px 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Enhanced Navigation */
+.app-nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Reduced gap to prevent overflow */
+  padding: 15px;
+  background: linear-gradient(135deg, #fff9f4 0%, #fdf8f5 100%);
+  border-radius: 30px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+  position: sticky;
+  top: 20px;
+  z-index: 10;
+  width: 100%; /* Ensure it takes full width of parent */
+  max-width: 600px; /* Constrain width to prevent overflow */
+  margin-left: auto; /* Center the nav */
+  margin-right: auto;
+}
+
+.app-nav a {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: #4a3f35;
+  text-decoration: none;
+  padding: 12px 20px; /* Reduced padding slightly */
+  border-radius: 25px;
+  background: #d9c2b5;
+  transition: all 0.3s ease;
+  width: 87%; /* Full width on mobile */
+  max-width: 200px; /* Constrain button width */
+  text-align: center; /* Center text */
+}
+
+.app-nav a:hover,
+.app-nav a:active {
+  background: #b89a8c;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(163, 134, 119, 0.4);
+}
+
+/* Form and Inputs */
 form {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   margin-bottom: 30px;
 }
 
-select, 
+select,
 input[type="text"],
 input[type="number"] {
   width: 100%;
   max-width: 300px;
   margin: 10px auto;
   padding: 12px;
-  border: 1px solid #d9c2b5;
-  border-radius: 8px;
+  border: 2px solid #d9c2b5;
+  border-radius: 10px;
   font-size: 1rem;
   font-family: 'Cormorant Garamond', serif;
   background: #fff;
@@ -43,14 +96,15 @@ input[type="number"] {
   transition: all 0.3s ease;
 }
 
-select:focus, 
+select:focus,
 input[type="text"]:focus,
 input[type="number"]:focus {
   outline: none;
   border-color: #b89a8c;
-  box-shadow: 0 0 8px rgba(184, 154, 140, 0.3);
+  box-shadow: 0 0 10px rgba(184, 154, 140, 0.3);
 }
 
+/* Buttons */
 button {
   background: #b89a8c;
   color: white;
@@ -68,24 +122,17 @@ button {
 button:hover {
   background: #a38677;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(163, 134, 119, 0.3);
+  box-shadow: 0 4px 15px rgba(163, 134, 119, 0.4);
 }
 
-h2 {
-  color: #4a3f35;
-  font-family: 'Dancing Script', cursive;
-  font-size: 2.5rem;
-  text-align: center;
-  margin: 30px 0;
-}
-
+/* List Items */
 ul {
   list-style: none;
   padding: 0;
 }
 
 li {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   margin: 15px 0;
   padding: 15px;
   border-radius: 10px;
@@ -111,7 +158,7 @@ li button:hover {
   background: #c7a998;
 }
 
-/* Counter styles */
+/* Counter Styles */
 .counters {
   background: rgba(255, 255, 255, 0.95);
   padding: 20px;
@@ -132,7 +179,7 @@ li button:hover {
   height: 200%;
   background: radial-gradient(circle, rgba(184, 154, 140, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
   transform: rotate(30deg);
-  z-index: 0; /* Ensure it stays behind content */
+  z-index: 0;
 }
 
 .counters h3 {
@@ -173,14 +220,12 @@ li button:hover {
   font-weight: 600;
   color: #b89a8c;
   margin-bottom: 8px;
-  font-family: 'Cormorant Garamond', serif;
 }
 
 .counter-label {
   display: block;
   font-size: 1rem;
   color: #4a3f35;
-  font-family: 'Cormorant Garamond', serif;
 }
 
 .counter-item.total .counter-number {
@@ -193,7 +238,7 @@ li button:hover {
   border: 2px dashed #d9c2b5;
 }
 
-/* Form aesthetics */
+/* Form Aesthetics */
 .wedding-form .form-group {
   margin-bottom: 15px;
   text-align: center;
@@ -205,7 +250,7 @@ li button:hover {
   color: #4a3f35;
   font-size: 1.5rem;
   margin-bottom: 8px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .wedding-form select,
@@ -223,7 +268,7 @@ li button:hover {
   gap: 15px;
   margin-bottom: 20px;
   position: relative;
-  z-index: 10; /* Ensure buttons are above other elements */
+  z-index: 10;
 }
 
 .event-buttons button {
@@ -233,10 +278,8 @@ li button:hover {
   padding: 10px 20px;
   border-radius: 20px;
   cursor: pointer;
-  font-family: 'Cormorant Garamond', serif;
   font-size: 1rem;
   transition: all 0.3s ease;
-  pointer-events: auto; /* Explicitly allow clicks */
 }
 
 .event-buttons button:hover,
@@ -260,7 +303,7 @@ li button:hover {
   text-align: center;
   margin-bottom: 20px;
   position: relative;
-  z-index: 10; /* Ensure it’s above the counters background */
+  z-index: 10;
 }
 
 .location-selector select {
@@ -269,7 +312,6 @@ li button:hover {
   border: none;
   padding: 10px 20px;
   border-radius: 20px;
-  font-family: 'Cormorant Garamond', serif;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -299,6 +341,149 @@ li button:hover {
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Guest Contributions Styles */
+.guest-contributions {
+  padding: 25px;
+  background: linear-gradient(135deg, #fff9f4 0%, #fdf8f5 100%);
+  border-radius: 25px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-bar {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 80%;
+  max-width: 420px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 30px;
+  background: #fff;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  box-shadow: 0 4px 20px rgba(184, 154, 140, 0.3);
+  background: #fdf8f5;
+}
+
+.guest-list {
+  max-height: 250px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  padding: 10px 0;
+}
+
+.guest-item {
+  padding: 15px 20px;
+  cursor: pointer;
+  color: #4a3f35;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #f5f1ed;
+  transition: all 0.3s ease;
+}
+
+.guest-item:hover {
+  background: #f5f1ed;
+  color: #b89a8c;
+}
+
+.no-results {
+  padding: 15px 20px;
+  font-style: italic;
+  color: #a38677;
+  text-align: center;
+}
+
+.contribution-form {
+  padding: 25px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.contribution-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.contribution-box {
+  background: linear-gradient(135deg, #fff9f4 0%, #fdf8f5 100%);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.contribution-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.amount-input {
+  max-width: 100%;
+  padding: 12px;
+  border: 2px solid #d9c2b5;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #b89a8c;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.amount-input:focus {
+  border-color: #b89a8c;
+  box-shadow: 0 0 8px rgba(184, 154, 140, 0.3);
+}
+
+.description-input {
+  width: 100%;
+  height: 100px;
+  margin-top: 15px;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fff 0%, #fdf8f5 100%);
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  color: #4a3f35;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+.description-input:focus {
+  box-shadow: 0 0 10px rgba(184, 154, 140, 0.3);
+  background: #fff;
+}
+
+.save-button {
+  padding: 14px 35px;
+  font-size: 1.2rem;
+  background: #b89a8c;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.save-button:hover {
+  background: #a38677;
+  transform: translateY(-3px);
 }
 
 /* Mobile View Adjustments */
@@ -408,11 +593,72 @@ li button:hover {
     font-size: 1rem;
     padding: 8px;
   }
+
+  .app-nav {
+    flex-direction: column;
+    gap: 10px; /* Reduced gap for mobile */
+    padding: 10px;
+    max-width: 100%; /* Ensure it fits within parent */
+  }
+
+  .app-nav a {
+    font-size: 1.3rem;
+    padding: 10px 15px;
+    max-width: 100%; /* Full width on mobile */
+  }
+
+  .guest-contributions {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .search-input {
+    max-width: 80%;
+    padding: 12px 15px;
+    font-size: 1rem;
+  }
+
+  .guest-list {
+    max-height: 200px;
+  }
+
+  .guest-item {
+    padding: 12px 15px;
+    font-size: 1rem;
+  }
+
+  .contribution-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .contribution-box {
+    padding: 15px;
+  }
+
+  .amount-input {
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .description-input {
+    height: 90px;
+    font-size: 1.1rem;
+  }
+
+  .save-button {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+  }
 }
 
 @media (max-width: 480px) {
   h1 {
     font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
   }
 
   .counters h3 {
@@ -445,5 +691,43 @@ li button:hover {
 
   .event-totals p {
     font-size: 0.9rem;
+  }
+
+  .app-nav {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .app-nav a {
+    font-size: 1.2rem;
+    padding: 8px 12px;
+  }
+
+  .guest-item {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+
+  .search-input {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .contribution-box {
+    padding: 12px;
+  }
+
+  .amount-input {
+    font-size: 0.9rem;
+  }
+
+  .description-input {
+    height: 80px;
+    font-size: 1rem;
+  }
+
+  .save-button {
+    padding: 10px 25px;
+    font-size: 1rem;
   }
 }
